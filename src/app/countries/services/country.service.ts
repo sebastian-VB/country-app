@@ -12,8 +12,22 @@ export class CountriesService {
   constructor(private http: HttpClient) { }
 
   //en el pipe se captura el error y con of([]) retorna un nuevo observable
-  searchCapital(term: string): Observable<Country[]> {
-    return this.http.get<Country[]>(`${this.apiUrl}/capital/${term}`)
+  searchCapital(capital: string): Observable<Country[]> {
+    return this.http.get<Country[]>(`${this.apiUrl}/capital/${capital}`)
+      .pipe(
+        catchError(() => of([]))
+      );
+  }
+
+  searchCountry(country: string): Observable<Country[]>{
+    return this.http.get<Country[]>(`${this.apiUrl}/name/${country}`)
+      .pipe(
+        catchError(() => of([]))
+      );
+  }
+
+  searchRegion(region: string): Observable<Country[]>{
+    return this.http.get<Country[]>(`${this.apiUrl}/region/${region}`)
       .pipe(
         catchError(() => of([]))
       );
