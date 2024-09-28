@@ -34,7 +34,7 @@
         <th>{{country.capital}}</th>
         <th>{{country.population | number}}</th>
         <th>
-          <a href="#">Ver mas</a>
+          <a [routerLink]="['/countries/by', country.cca3]">Info</a>
         </th>
       </tr>
     </tbody>
