@@ -25,14 +25,18 @@ export class CountriesService {
     localStorage.setItem('cacheStore', JSON.stringify(this.cacheStore));
   }
 
-  private loadFromLocalStorage(){
-    if(localStorage.getItem('cacheStore')) return ;
 
-    this.cacheStore = JSON.parse(localStorage.getItem('cacheStore')!);
+  private loadFromLocalStorage() {
+    const savedCacheStore = localStorage.getItem('cacheStore');
+    if (savedCacheStore) {
+      this.cacheStore = JSON.parse(savedCacheStore);
+    }
   }
+
 
   //en el pipe se captura el error y con of([]) retorna un nuevo observable
   private getCountryRequest(url: string): Observable<Country[]>{
+
     return this.http.get<Country[]>(url)
       .pipe(
         catchError(() => of([]))
@@ -50,24 +54,30 @@ export class CountriesService {
   searchCapital(capital: string): Observable<Country[]> {
     return this.getCountryRequest(`${this.apiUrl}/capital/${capital}`)
         .pipe(
-          tap(countries => this.cacheStore.byCapital = {term: capital, countries}),
-          tap(()=> this.saveToLocalStorage())
+          tap(countries => {
+            this.cacheStore.byCapital = {term: capital, countries}
+            this.saveToLocalStorage();
+          })
         );
   }
 
   searchCountry(country: string): Observable<Country[]>{
     return this.getCountryRequest(`${this.apiUrl}/name/${country}`)
         .pipe(
-          tap(countries => this.cacheStore.byCountries = {term: country, countries}),
-          tap(()=> this.saveToLocalStorage())
+          tap(countries => {
+            this.cacheStore.byCountries = {term: country, countries}
+            this.saveToLocalStorage();
+          })
         );
   }
 
   searchRegion(region: Region): Observable<Country[]>{
     return this.getCountryRequest(`${this.apiUrl}/region/${region}`)
         .pipe(
-          tap(countries => this.cacheStore.byRegion = {region, countries}),
-          tap(()=> this.saveToLocalStorage())
+          tap(countries => {
+            this.cacheStore.byRegion = {region, countries}
+            this.saveToLocalStorage();
+          })
         );
   }
 
