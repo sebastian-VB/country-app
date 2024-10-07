@@ -1,27 +1,17 @@
 # CountryApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.0.
+Buscador de paises mediante capital, país y región.
 
-## Development server
+Se obtiene de la api: [Rest Countries](https://restcountries.com/)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Probar la aplicación
 
-## Code scaffolding
+![image](https://github.com/user-attachments/assets/0691502a-79ae-46be-8d29-d9fb0804d94a)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+![image](https://github.com/user-attachments/assets/90a4c415-916c-415a-9116-7b06355dd5e0)
 
-## Build
+![image](https://github.com/user-attachments/assets/9ff366dd-62a0-4449-82d1-f0b17a86c90b)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+![image](https://github.com/user-attachments/assets/06e2192e-6ac4-4636-b0ea-93bbc1baa104)
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
